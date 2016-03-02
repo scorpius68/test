@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	default-autowire="byName"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+		
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@210.117.6.61:1981:netpoint"></property>
+		<property name="username" value="netpoints"></property>
+		<property name="password" value="anjrlsanjdi12#"></property>
+		<property name="validationQuery" value="SELECT 1 FROM DUAL"></property>
+	</bean>
+	<!--
+		######################################################################
+		# Oracle DataSource setting
+		######################################################################
+	-->
+<!-- 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+<!-- 		<property name="driverClassName" value="${netpoint.driverClassName}"></property> -->
+<!-- 		<property name="url" value="${netpoint.url}"></property> -->
+<!-- 		<property name="username" value="${netpoint.username}"></property> -->
+<!-- 		<property name="password" value="${netpoint.password}"></property> -->
+<!-- 	</bean> -->
+
+	<!--
+		######################################################################
+		# myBatis setting
+		######################################################################
+	-->
+	<bean id="sqlSessionFactory" class="com.sj.vo.RefreshableSqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+		
+  	<!--
+		######################################################################
+		# Transaction setting
+		######################################################################
+	-->
+<!--   	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> -->
+<!--   		<property name="dataSource" ref="dataSource"/> -->
+<!--   	</bean> -->
+<!--   	<tx:annotation-driven transaction-manager="txManager" /> -->
+  	
+</beans>
