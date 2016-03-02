@@ -24,15 +24,15 @@ public class CustomerQnaImpl implements CustomerQnaDao{
 		return sqlSession.selectOne(namespace+".getTime");
 	}
 
-	@Override
-	public List<CustomerQna> selectCusomerQnaList() {
-		// TODO Auto-generated method stub
-		
-		List<CustomerQna> result = null;
-		System.err.println("selectCusomerQnaList");
-		result = sqlSession.selectList(namespace + ".selectCustomerQnaList");
-		
-		return result;
-	}
+//	@Override
+//	public List<CustomerQna> selectCusomerQnaList() {
+//		// TODO Auto-generated method stub
+//		
+//		List<CustomerQna> result = null;
+//		System.err.println("selectCusomerQnaList");
+//		result = sqlSession.selectList(namespace + ".selectCustomerQnaList");
+//		
+//		return result;
+//	}
 
 }

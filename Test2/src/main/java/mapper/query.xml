@@ -2,10 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.CustomerQnaMapper">
 	<select id="getTime" resultType="String">
-		select current_date from dual
+		select current_date
 	</select>
 
-    <select id="selectCustomerQnaList" resultType="com.sj.vo.CustomerQna">
-        select * from customer_qna where reg_day between '20160101000000' and '20160131999999' order by reg_day desc
-    </select>
 </mapper>

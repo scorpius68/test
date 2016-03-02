@@ -5,5 +5,5 @@ import com.sj.vo.CustomerQna;
 
 public interface CustomerQnaDao {
 	public String getTime();
-	public List<CustomerQna> selectCusomerQnaList();
+//	public List<CustomerQna> selectCusomerQnaList();
 }

@@ -35,15 +35,15 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		
-		List<CustomerQna> list = qnaDao.selectCusomerQnaList();
-		
-		model.addAttribute("qnaList", list);
-		
-		return "home";
-	}
+//	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
+//	public String home(Locale locale, Model model) {
+//		
+//		List<CustomerQna> list = qnaDao.selectCusomerQnaList();
+//		
+//		model.addAttribute("qnaList", list);
+//		
+//		return "home";
+//	}
 	
 	@RequestMapping(value="/index.do", method=RequestMethod.GET)
 	public ModelAndView index(){
@@ -59,6 +59,20 @@ public class HomeController {
 		
 		mav.setViewName("view");
 		mav.addObject("result", list);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="getTime.do", method=RequestMethod.GET)
+	public ModelAndView getTime(){
+		logger.info("getTime");
+		mav = new ModelAndView();
+		
+		String sTime = qnaDao.getTime();
+		logger.error(sTime);
+		
+		mav.setViewName("home");
+		mav.addObject("time", sTime);
 		
 		return mav;
 	}

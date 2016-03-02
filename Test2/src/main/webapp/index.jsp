@@ -6,6 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index222
+	<a href="getTime.do">getTime</a>
 </body>
 </html>
