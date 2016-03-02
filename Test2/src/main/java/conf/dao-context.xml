@@ -10,13 +10,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 		
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="url" value="jdbc:oracle:thin:@210.117.6.61:1981:netpoint"></property>
-		<property name="username" value="netpoints"></property>
-		<property name="password" value="anjrlsanjdi12#"></property>
-		<property name="validationQuery" value="SELECT 1 FROM DUAL"></property>
-	</bean>
 	<!--
 		######################################################################
 		# Oracle DataSource setting
@@ -28,6 +21,18 @@
 <!-- 		<property name="username" value="${netpoint.username}"></property> -->
 <!-- 		<property name="password" value="${netpoint.password}"></property> -->
 <!-- 	</bean> -->
+
+	<!--
+		######################################################################
+		# Mysql DataSource setting
+		######################################################################
+	-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://http://scorpius68.cafe24.com"></property>
+		<property name="username" value="scorpius68"></property>
+		<property name="password" value="phantom^^79"></property>
+	</bean>
 
 	<!--
 		######################################################################
