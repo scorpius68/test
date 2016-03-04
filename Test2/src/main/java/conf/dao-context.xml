@@ -30,7 +30,7 @@
 	<bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://scorpius68.cafe24.com:3306/scorpius68"></property>
-		<property name="username" value="scorpius68"></property>
+		<property name="username" value="scorpius68123"></property>
 		<property name="password" value="phantom^^79"></property>
 	</bean>
 	
